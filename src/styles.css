@@ -1,0 +1,29 @@
+.btn { border-radius: 0; }
+
+.titulo { padding-top: 10px; }
+
+.error { color: #DC143C; }
+
+input[type=text], input[type=search], textarea.form-control, select.form-control {
+	border: 3px solid #BDBDBD;
+    border-radius: 0;    
+}
+
+input[type=text]:focus, input[type=search]:focus, textarea.form-control:focus, select.form-control:focus {
+	box-shadow:none; 
+	border: 3px solid #808B96;      
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:focus, .btn-primary.focus
+{
+    box-shadow:none;
+}
+
+.btn-danger:not(:disabled):not(.disabled):active:focus,
+.btn-danger:focus, .btn-danger.focus
+{
+    box-shadow:none;
+}
+
+

@@ -1,0 +1,16 @@
+<div class="titulo">
+	<h5>Registrar un nuevo idioma</h5>    
+	<p>A continuación podrás realizar registrar un nuevo idioma en la base de datos.</p>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nombre">Idioma</label>
+    <input type="text" class="form-control col-md-4" id="nombre" autoFocus autocomplete="off" formControlName="nombre">
+	<div class="error" *ngIf="(nombre.dirty || nombre.touched) && nombre.invalid && nombre.errors.required">El idioma es requerido</div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+  	<i class="fa fa-plus"></i> Registrar idioma
+  </button>    
+</form>
+
