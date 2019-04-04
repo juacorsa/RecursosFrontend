@@ -1,12 +1,40 @@
-<div class="titulo">
+<div class="titulo mb-4">
 	<h5>Mantenimiento de idiomas</h5>    
-	<p>A continuación podrás realizar un mantenimiento completo de los idiomas registrados en la base de datos 
+	<p>A continuación podrás realizar un mantenimiento completo de los idiomas registrados en la base de datos.
 		<span class="float-right">
 			<a [routerLink]="['/idioma-create']" class="btn btn-primary">
 				<i class="fa fa-plus"></i> Registrar un nuevo idioma</a></span>
 	</p>
 </div>
 
+<div *ngIf="!hayDatos; else template">
+  No hay idiomas registrados!!
+</div>
 
-
- 
+<ng-template #template>
+<div class="col-md-3 mb-4 no-padding">
+	<input type="text" autoFocus [(ngModel)]="idiomaFilter.nombre" class="form-control" placeholder="Buscar idiomas ..." />
+</div>
+<div class="col-md-5 no-padding">	
+	<table class="table table-hover table-bordered">
+	<thead class="thead-light">
+		<tr>
+			<td class="editar text-center">Editar</td>
+			<td>Idioma</td>						
+		</tr>			
+	</thead>
+	<tbody>
+		<tr *ngFor="let idioma of idiomas | filterBy: idiomaFilter  | paginate: { itemsPerPage: 7, currentPage: p }">
+			<td class="text-center">
+				<a class="btn btn-primary" routerLink='/api/idiomas/{{idioma._id}}/edit'>
+					<i class="fa fa-bars"></i>
+				</a>
+			</td>
+			<td class="align-middle">{{idioma.nombre}}</td>
+		</tr>		
+	</tbody>	 
+	</table>
+	<pagination-controls class="float-right" (pageChange)="p = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
+	<div *ngIf="(idiomas | filterBy: idiomaFilter).length === 0">No hay registros</div>
+</div>
+</ng-template>

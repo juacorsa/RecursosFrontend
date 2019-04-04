@@ -1,5 +1,10 @@
 # Frontend Recursos en Angular 7
 
+### Commit 3 - 04-03-2019
+* Instalamos npm install ngx-toastr --save
+* Instalamos npm install @angular/animations --save
+* No olvidar incluir en styles.css #toast-container > div { opacity:1; }
+
 ### Commit 2 - 01-03-2019
 * Se instala SweetAlert2
 * Se terminan los formularios de registro de temas, fabricantes, valoraciones y editoriales.

@@ -2,10 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-import { AutofocusDirective } from './directives/auto-focus.directive';
-
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination'; 
+import { FilterPipeModule } from 'ngx-filter-pipe';
+
+/* Componentes */
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { IdiomaCreateComponent } from './components/idiomas/idioma-create/idioma-create.component';
@@ -25,6 +29,10 @@ import { TemaListComponent } from './components/temas/tema-list/tema-list.compon
 import { ValoracionListComponent } from './components/valoraciones/valoracion-list/valoracion-list.component';
 import { ValoracionCreateComponent } from './components/valoraciones/valoracion-create/valoracion-create.component';
 import { ValoracionEditComponent } from './components/valoraciones/valoracion-edit/valoracion-edit.component';
+
+/* Directivas */
+import { AutofocusDirective } from './directives/auto-focus.directive';
+
 
 @NgModule({
   declarations: [
@@ -54,8 +62,11 @@ import { ValoracionEditComponent } from './components/valoraciones/valoracion-ed
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,    
-    HttpClientModule 
-    
+    HttpClientModule,    
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+    FilterPipeModule,
+    ToastrModule.forRoot()    
   ],
   providers: [],
   bootstrap: [AppComponent]
