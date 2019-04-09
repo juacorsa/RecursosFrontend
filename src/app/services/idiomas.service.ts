@@ -42,11 +42,10 @@ export class IdiomasService {
     if (error.error instanceof ErrorEvent) {      
       errorMessage = `Error: ${error.error.message}`;
     } else {      
-      errorMessage = `Error de servidor: ${error.status}\nMessage: ${error.message}`;
+      errorMessage = `${error.error}`;
     } 
-
+    
     return throwError(errorMessage);
   }
 }
 
-// https://scotch.io/bar-talk/error-handling-with-angular-6-tips-and-best-practices192

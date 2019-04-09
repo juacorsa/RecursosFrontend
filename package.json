@@ -30,6 +30,7 @@
     "popper": "^1.0.1",
     "popper.js": "^1.14.7",
     "rxjs": "~6.4.0",
+    "rxjs-compat": "^6.4.0",
     "sweetalert2": "^8.2.6",
     "zone.js": "~0.8.29"
   },

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { IdiomasService } from '../../../services/idiomas.service';
 import { Idioma } from '../../../models/idioma.model';
+import Swal from 'sweetalert2';
+import { messages } from '../../../../shared/messages';
 
 @Component({
   selector: 'app-idioma-list',
@@ -14,6 +16,7 @@ export class IdiomaListComponent implements OnInit {
   hayDatos: boolean = true;
   p: number = 1;
   idiomaFilter: any = { nombre: '' };
+  descendente: boolean = false;
 
   constructor(private idiomaService: IdiomasService) { }
   
@@ -38,7 +41,17 @@ export class IdiomaListComponent implements OnInit {
   		)  	
   }
 
+  ordenarTabla() {    
+    this.descendente = !this.descendente;
+
+    if (!this.descendente)
+      this.idiomas.sort((a,b) => a.nombre.localeCompare(b.nombre));
+    else
+      this.idiomas.sort((a,b) => b.nombre.localeCompare(a.nombre));
+  }
+
   ngOnDestroy() {
-  	this.subscription.unsubscribe()
+  	if (this.subscription)
+      this.subscription.unsubscribe();
   }    
 }

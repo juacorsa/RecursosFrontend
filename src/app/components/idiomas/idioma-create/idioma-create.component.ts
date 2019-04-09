@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-//import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 import { IdiomasService } from '../../../services/idiomas.service';
 import { ToastrService } from 'ngx-toastr';
@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class IdiomaCreateComponent implements OnInit {
   form: FormGroup;	
-  //subscription: Subscription;  	
+  subscription: Subscription;  	
 
   constructor(private fb: FormBuilder, 
               private toastr: ToastrService, 
@@ -32,7 +32,7 @@ export class IdiomaCreateComponent implements OnInit {
       "nombre": this.form.value.nombre
     }    
    
-    this.idiomaService.registrarIdioma(idioma)
+    this.subscription = this.idiomaService.registrarIdioma(idioma)
       .subscribe(
         (res) => {
           this.form.reset();
@@ -48,8 +48,9 @@ export class IdiomaCreateComponent implements OnInit {
       )   
     }
 
- ngOnDestroy() {
-    //this.subscription.unsubscribe()
+ ngOnDestroy() {    
+    if (this.subscription)
+      this.subscription.unsubscribe();
  }    
   
   get nombre() { return this.form.get('nombre'); }

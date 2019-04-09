@@ -1,5 +1,15 @@
 # Frontend Recursos en Angular 7
 
+### Commit 4 - 09-04-2019
+* Se instala ngx-pagination 3.2.1 
+* Se instala ngx-filter-pipe 2.1.2
+* Se instala rxjs-compat para solucionar los problemas con las subscriptions
+* Se termina el servicio de idiomas
+* Se termina la vista de idiomas
+* Se crea shared/messages.ts donde se guardan todos los mensajes de la aplicaicón
+* Se implementa la ordenación de los idiomas
+
+
 ### Commit 3 - 04-03-2019
 * Instalamos npm install ngx-toastr --save
 * Instalamos npm install @angular/animations --save
@@ -18,4 +28,5 @@
 * Se crea el componente not-found y navbar.
 * Se configura el app-routing.module.ts parcialmente.
 
-
+### Recursos a tener en cuenta
+* https://scotch.io/bar-talk/error-handling-with-angular-6-tips-and-best-practices192
